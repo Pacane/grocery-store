@@ -23,3 +23,8 @@ build.dart --machine --changed=README.md
 
 build.dart finished [784 ms]
 
+---
+build.dart --machine --changed=web/index.html --removed=web/grocery_store.html
+
+build.dart finished [796 ms]
+
