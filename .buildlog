@@ -1,0 +1,25 @@
+---
+build.dart --machine --full
+
+build.dart finished [831 ms]
+
+---
+build.dart --machine --changed=pubspec.lock
+
+build.dart finished [956 ms]
+
+---
+build.dart --machine --changed=build/web/clickcounter.html --changed=build/web/grocery_store.css --changed=buil...
+
+build.dart finished [776 ms]
+
+---
+build.dart --machine --removed=build/web/clickcounter.html --removed=build/web/grocery_store.css --removed=buil...
+
+build.dart finished [753 ms]
+
+---
+build.dart --machine --changed=README.md
+
+build.dart finished [784 ms]
+
