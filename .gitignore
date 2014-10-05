@@ -16,3 +16,6 @@ pubspec.lock
 
 .idea
 *.iml
+
+# vim files
+*.swp
