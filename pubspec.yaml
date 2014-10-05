@@ -4,4 +4,4 @@ dependencies:
     polymer: ">=0.12.0 <0.13.0"
 transformers:
 - polymer:
-    entry_points: web/grocery_store.html
+    entry_points: web/index.html

@@ -28,3 +28,183 @@ build.dart --machine --changed=web/index.html --removed=web/grocery_store.html
 
 build.dart finished [796 ms]
 
+---
+build.dart --machine --changed=web/item.dart --changed=web/row.dart
+
+build.dart finished [791 ms]
+
+---
+build.dart --machine --changed=web/row.dart
+
+build.dart finished [813 ms]
+
+---
+build.dart --machine --changed=web/item.dart
+
+build.dart finished [815 ms]
+
+---
+build.dart --machine --changed=web/item.dart
+
+build.dart finished [838 ms]
+
+---
+build.dart --machine --changed=pubspec.yaml
+
+build.dart finished [714 ms]
+
+---
+build.dart --machine --changed=web/item.dart
+
+build.dart finished [705 ms]
+
+---
+build.dart --machine --changed=web/clickcounter.dart
+
+build.dart finished [715 ms]
+
+---
+build.dart --machine --changed=web/clickcounter.dart
+
+build.dart finished [733 ms]
+
+---
+build.dart --machine --changed=web/clickcounter.dart
+
+build.dart finished [731 ms]
+
+---
+build.dart --machine --changed=web/item.dart
+
+build.dart finished [730 ms]
+
+---
+build.dart --machine --changed=web/item.dart
+
+build.dart finished [703 ms]
+
+---
+build.dart --machine --changed=web/item.dart
+
+build.dart finished [730 ms]
+
+---
+build.dart --machine --changed=web/clickcounter.html
+
+build.dart finished [737 ms]
+
+---
+build.dart --machine --changed=web/clickcounter.html
+
+build.dart finished [750 ms]
+
+---
+build.dart --machine --changed=web/clickcounter.html
+
+build.dart finished [754 ms]
+
+---
+build.dart --machine --changed=web/clickcounter.html
+
+build.dart finished [739 ms]
+
+---
+build.dart --machine --changed=web/clickcounter.dart
+
+build.dart finished [802 ms]
+
+---
+build.dart --machine --changed=web/clickcounter.dart
+
+build.dart finished [726 ms]
+
+---
+build.dart --machine --changed=web/item.dart
+
+build.dart finished [744 ms]
+
+---
+build.dart --machine --changed=web/clickcounter.dart
+
+build.dart finished [759 ms]
+
+---
+build.dart --machine --changed=web/item.dart
+
+build.dart finished [764 ms]
+
+---
+build.dart --machine --changed=web/item.dart
+
+build.dart finished [747 ms]
+
+---
+build.dart --machine --changed=web/clickcounter.html
+
+build.dart finished [726 ms]
+
+---
+build.dart --machine --changed=web/item.dart
+
+build.dart finished [739 ms]
+
+---
+build.dart --machine --changed=web/clickcounter.dart --changed=web/clickcounter.html
+
+build.dart finished [717 ms]
+
+---
+build.dart --machine --changed=web/clickcounter.html
+
+build.dart finished [721 ms]
+
+---
+build.dart --machine --changed=web/clickcounter.dart
+
+build.dart finished [725 ms]
+
+---
+build.dart --machine --changed=web/clickcounter.dart --changed=web/index.html
+
+build.dart finished [710 ms]
+
+---
+build.dart --machine --changed=web/clickcounter.dart
+
+build.dart finished [713 ms]
+
+---
+build.dart --machine --changed=web/clickcounter.dart
+
+build.dart finished [768 ms]
+
+---
+build.dart --machine --changed=web/clickcounter.dart
+
+build.dart finished [794 ms]
+
+---
+build.dart --machine --changed=web/clickcounter.dart
+
+build.dart finished [739 ms]
+
+---
+build.dart --machine --changed=web/clickcounter.dart
+
+build.dart finished [762 ms]
+
+---
+build.dart --machine --changed=web/clickcounter.dart --changed=web/index.html
+
+build.dart finished [707 ms]
+
+---
+build.dart --machine --changed=web/clickcounter.dart
+
+build.dart finished [751 ms]
+
+---
+build.dart --machine --changed=web/clickcounter.html
+
+build.dart finished [740 ms]
+
