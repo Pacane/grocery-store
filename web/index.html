@@ -13,22 +13,22 @@
     <!-- import the click-counter -->
     <link rel="stylesheet" href="grocery_store.css">
   </head>
-  <body ng-cloak>
+  <body>
     <h1>Grocery store</h1>
-    
+
     <p>Hello world from Dart!</p>
-    
+
     <div items>
         <ul>
-            <li ng-repeat="item in ctrl.items"
-                ng-click="ctrl.selectItem(item)"
-                ng-bind="item.name">
+            <li ng-repeat="row in ctrl.rows">
+                <h1>{{row.name}}</h1>
+                <ul>
+                    <li ng-repeat="item in row.items">
+                    {{item.name}}
+                    </li>
+                </ul>
             </li>
         </ul>
-
-        <div id="selectedItem">
-            {{ctrl.selectedItem.price}}
-        </div>
     </div>
 
     <script type="application/dart" src="main.dart"></script>
