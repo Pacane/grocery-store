@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html ng-app>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,8 +11,6 @@
     <script src="packages/web_components/dart_support.js"></script>
 
     <!-- import the click-counter -->
-    <link rel="import" href="clickcounter.html">
-    
     <link rel="stylesheet" href="grocery_store.css">
   </head>
   <body>
@@ -20,12 +18,20 @@
     
     <p>Hello world from Dart!</p>
     
-    <div id="sample_container_id">
-      <click-counter count="5"></click-counter>
+    <div items>
+        <ul>
+            <li ng-repeat="item in ctrl.items"
+                ng-click="ctrl.selectItem(item)"
+                ng-bind="item.name">
+            </li>
+        </ul>
+
+        <div id="selectedItem" ng-model="ctrl.selectedItem">
+            {{ctrl.selectedItem.price}}
+        </div>
     </div>
 
-    <!-- bootstrap polymer -->
-    <script type="application/dart">export 'package:polymer/init.dart';</script>
+    <script type="application/dart" src="main.dart"></script>
     <script src="packages/browser/dart.js"></script>
   </body>
 </html>

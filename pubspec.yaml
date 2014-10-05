@@ -1,7 +1,6 @@
 name: grocery_store
-description: A sample Polymer application
+description: grocery store application
 dependencies:
-    polymer: ">=0.12.0 <0.13.0"
+    angular: any 
 transformers:
-- polymer:
-    entry_points: web/index.html
+- angular
