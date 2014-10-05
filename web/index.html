@@ -13,7 +13,7 @@
     <!-- import the click-counter -->
     <link rel="stylesheet" href="grocery_store.css">
   </head>
-  <body>
+  <body ng-cloak>
     <h1>Grocery store</h1>
     
     <p>Hello world from Dart!</p>
@@ -26,7 +26,7 @@
             </li>
         </ul>
 
-        <div id="selectedItem" ng-model="ctrl.selectedItem">
+        <div id="selectedItem">
             {{ctrl.selectedItem.price}}
         </div>
     </div>

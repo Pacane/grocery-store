@@ -2,5 +2,8 @@ name: grocery_store
 description: grocery store application
 dependencies:
     angular: any 
+    polymer: any
+dev_dependencies:
+  unittest: any
 transformers:
 - angular

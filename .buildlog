@@ -376,3 +376,66 @@ Stack Trace:
 #3      _RawReceivePortImpl._handleMessage (dart:isolate-patch/isolate_patch.dart:126)
 build.dart finished [53 ms]
 
+---
+build.dart --machine --changed=pubspec.yaml
+Unhandled exception:
+Uncaught Error: FileSystemException: Cannot open file, path = '/home/joel/code/dart/grocery_store/packages/polymer/builder.dart' (OS Error: No such file or directory, errno = 2)
+Stack Trace:
+#0      _File.open.<anonymous closure> (dart:io/file_impl.dart:349)
+#1      _RootZone.runUnary (dart:async/zone.dart:1082)
+#2      _Future._propagateToListeners.handleValueCallback (dart:async/future_impl.dart:488)
+#3      _Future._propagateToListeners (dart:async/future_impl.dart:571)
+#4      _Future._completeWithValue (dart:async/future_impl.dart:331)
+#5      _Future._asyncComplete.<anonymous closure> (dart:async/future_impl.dart:393)
+#6      _asyncRunCallbackLoop (dart:async/schedule_microtask.dart:41)
+#7      _asyncRunCallback (dart:async/schedule_microtask.dart:48)
+#8      _RawReceivePortImpl._handleMessage (dart:isolate-patch/isolate_patch.dart:126)
+
+#0      _rootHandleUncaughtError.<anonymous closure> (dart:async/zone.dart:820)
+#1      _asyncRunCallbackLoop (dart:async/schedule_microtask.dart:41)
+#2      _asyncRunCallback (dart:async/schedule_microtask.dart:48)
+#3      _RawReceivePortImpl._handleMessage (dart:isolate-patch/isolate_patch.dart:126)
+build.dart finished [38 ms]
+
+---
+build.dart --machine --changed=pubspec.lock
+Unhandled exception:
+Uncaught Error: FileSystemException: Cannot open file, path = '/home/joel/code/dart/grocery_store/packages/polymer/builder.dart' (OS Error: No such file or directory, errno = 2)
+Stack Trace:
+#0      _File.open.<anonymous closure> (dart:io/file_impl.dart:349)
+#1      _RootZone.runUnary (dart:async/zone.dart:1082)
+#2      _Future._propagateToListeners.handleValueCallback (dart:async/future_impl.dart:488)
+#3      _Future._propagateToListeners (dart:async/future_impl.dart:571)
+#4      _Future._completeWithValue (dart:async/future_impl.dart:331)
+#5      _Future._asyncComplete.<anonymous closure> (dart:async/future_impl.dart:393)
+#6      _asyncRunCallbackLoop (dart:async/schedule_microtask.dart:41)
+#7      _asyncRunCallback (dart:async/schedule_microtask.dart:48)
+#8      _RawReceivePortImpl._handleMessage (dart:isolate-patch/isolate_patch.dart:126)
+
+#0      _rootHandleUncaughtError.<anonymous closure> (dart:async/zone.dart:820)
+#1      _asyncRunCallbackLoop (dart:async/schedule_microtask.dart:41)
+#2      _asyncRunCallback (dart:async/schedule_microtask.dart:48)
+#3      _RawReceivePortImpl._handleMessage (dart:isolate-patch/isolate_patch.dart:126)
+build.dart finished [47 ms]
+
+---
+build.dart --machine --changed=pubspec.lock
+Unhandled exception:
+Uncaught Error: FileSystemException: Cannot open file, path = '/home/joel/code/dart/grocery_store/packages/polymer/builder.dart' (OS Error: No such file or directory, errno = 2)
+Stack Trace:
+#0      _File.open.<anonymous closure> (dart:io/file_impl.dart:349)
+#1      _RootZone.runUnary (dart:async/zone.dart:1082)
+#2      _Future._propagateToListeners.handleValueCallback (dart:async/future_impl.dart:488)
+#3      _Future._propagateToListeners (dart:async/future_impl.dart:571)
+#4      _Future._completeWithValue (dart:async/future_impl.dart:331)
+#5      _Future._asyncComplete.<anonymous closure> (dart:async/future_impl.dart:393)
+#6      _asyncRunCallbackLoop (dart:async/schedule_microtask.dart:41)
+#7      _asyncRunCallback (dart:async/schedule_microtask.dart:48)
+#8      _RawReceivePortImpl._handleMessage (dart:isolate-patch/isolate_patch.dart:126)
+
+#0      _rootHandleUncaughtError.<anonymous closure> (dart:async/zone.dart:820)
+#1      _asyncRunCallbackLoop (dart:async/schedule_microtask.dart:41)
+#2      _asyncRunCallback (dart:async/schedule_microtask.dart:48)
+#3      _RawReceivePortImpl._handleMessage (dart:isolate-patch/isolate_patch.dart:126)
+build.dart finished [39 ms]
+
