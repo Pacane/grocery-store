@@ -16,6 +16,18 @@ class RowsController {
     rows = _loadData();
   }
 
+  void moveDownRow(Row row) {
+    var index = rows.indexOf(row);
+    
+    if(index == rows.length-1) {
+      return;
+    }
+    
+    Row nextRow = rows.elementAt(index+1);
+    rows[index] = nextRow;
+    rows[index+1] = row;    
+  }
+
   List<Row> _loadData() {
     Row fruits = new Row("Fruits");
     fruits.items.add(new Item("banane"));

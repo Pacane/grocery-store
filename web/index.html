@@ -15,13 +15,13 @@
   </head>
   <body>
     <h1>Grocery store</h1>
-
-    <p>Hello world from Dart!</p>
-
     <div items>
         <ul>
             <li ng-repeat="row in ctrl.rows">
-                <h1>{{row.name}}</h1>
+            <h1>
+                <button ng-click="ctrl.moveDownRow(row)">Move down</button>
+                {{row.name}}
+            </h1>
                 <ul>
                     <li ng-repeat="item in row.items">
                     {{item.name}}
