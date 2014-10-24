@@ -31,7 +31,7 @@ class GroceryListComponent {
 
     Row fruits = new Row('fruits');
     fruits.items = [
-        new Row('fruits'),
+        new Item('banane'),
         new Item('pomme'),
         new Item('orange'),
         new Item('mangue'),
