@@ -1,1 +1,4 @@
-<span ng-class="{'striped':selected, 'normal':!selected}">{{item.name}}</span><input type="checkbox" ng-model="selected">
+<div class="this">
+  <paper-checkbox ng-model="selected" ng-change="onChange()"></paper-checkbox>
+  <label ng-class="{'striped':selected, 'normal':!selected}">{{item.name}}</label>
+</div>

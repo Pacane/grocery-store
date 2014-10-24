@@ -4,4 +4,10 @@
 
 .normal {
     text-decoration: none;
+    vertical-align: middle;
+}
+
+.this {
+  margin-top: 20px;
+  width: 100px;
 }
