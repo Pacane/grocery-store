@@ -1,8 +1,8 @@
 name: grocery_store
 description: grocery store application
 dependencies:
-    angular: any 
-    polymer: any
+    angular: ">=1.0.0 <2.0.0"
+#    polymer: any
 dev_dependencies:
   unittest: any
 transformers:

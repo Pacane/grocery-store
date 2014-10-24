@@ -1,50 +1,17 @@
-library grocery_list;
+library grocery_list_app;
 
 import 'package:angular/angular.dart';
 import 'package:angular/application_factory.dart';
 
-import 'item.dart';
-import 'row.dart';
-
-@Controller(
-    selector: '[items]',
-    publishAs: 'ctrl')
-class RowsController {
-  List<Row> rows;
-
-  RowsController() {
-    rows = _loadData();
-  }
-
-  void moveDownRow(Row row) {
-    var index = rows.indexOf(row);
-    
-    if(index == rows.length-1) {
-      return;
-    }
-    
-    Row nextRow = rows.elementAt(index+1);
-    rows[index] = nextRow;
-    rows[index+1] = row;    
-  }
-
-  List<Row> _loadData() {
-    Row fruits = new Row("Fruits");
-    fruits.items.add(new Item("banane"));
-    fruits.items.add(new Item("pomme"));
-
-    Row legumes = new Row("Legumes");
-    legumes.items.add(new Item("tomate"));
-    legumes.items.add(new Item("laitue"));
-
-
-    return [fruits, legumes];
-  }
-}
+import 'package:grocery_store/grocery_list_component.dart';
+import 'package:grocery_store/row_component.dart';
+import 'package:grocery_store/item_component.dart';
 
 class MyAppModule extends Module {
   MyAppModule() {
-    bind(RowsController);
+    bind(GroceryListComponent);
+    bind(ListRowComponent);
+    bind(ListItemComponent);
   }
 }
 
