@@ -5,41 +5,40 @@ import 'package:angular/angular.dart';
 import 'package:grocery_store/row.dart';
 import 'package:grocery_store/item.dart';
 
+import 'package:grocery_store/item_repository.dart';
+import 'package:grocery_store/list_updated_callback.dart';
+
 @Component(
     selector: 'grocery-list',
     templateUrl: 'packages/grocery_store/grocery_list.html')
-class GroceryListComponent {
-  List<Row> rows;
+class GroceryListComponent implements ListUpdatedCallBack {
+  @NgOneWay("rowsToDisplay")
+  List<Row> rowsToDisplay;
+  @NgTwoWay('itemToAdd')
+  String itemToAdd = "tomate";
+  List<Item> items;
+  ItemRepository itemRepository;
 
-  GroceryListComponent() {
-    rows = _loadRows();
+  GroceryListComponent(ItemRepository itemRepository) {
+    this.itemRepository = itemRepository;
+
+    onBind();
   }
 
-  List<Row> _loadRows() {
-    List<Row> rows = new List();
+  void onBind() {
+    rowsToDisplay = itemRepository.rowsToDisplay();
+    items = itemRepository.getAllItems();
+  }
 
-    Row legumes = new Row('legumes');
-    legumes.items = [
-        new Item('tomate'),
-        new Item('salade'),
-        new Item('basilic'),
-        new Item('oignon'),
-        new Item('gingembre'),
-        new Item('ail')
-    ];
+  void addItem() {
+    var itemToAdd = itemRepository.getItem(this.itemToAdd);
 
+    if (itemToAdd != null && !itemRepository.listContains(itemToAdd)) {
+      itemRepository.addItemToList(itemToAdd, this);
+    }
+  }
 
-    Row fruits = new Row('fruits');
-    fruits.items = [
-        new Item('banane'),
-        new Item('pomme'),
-        new Item('orange'),
-        new Item('mangue'),
-    ];
-
-
-    rows = [legumes, fruits];
-
-    return rows;
+  void update(List<Row> updatedItems) {
+    rowsToDisplay = updatedItems;
   }
 }

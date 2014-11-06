@@ -1,5 +1,13 @@
-<ul>
-    <li ng-repeat="row in rows">
-    <row row="row"></row>
-    </li>
-</ul>
+<form>
+    <p>Add an item</p> <input id="addItemTextBox" list="itemOptions" placeholder="Type an item name" ng-model="itemToAdd">
+    <button id="addItem" ng-click="addItem()">Add</button>
+    <datalist id="itemOptions">
+        <option ng-repeat="item in items" value="{{item.name}}">
+    </datalist>
+
+    <ul>
+        <li ng-repeat="row in rowsToDisplay">
+            <row row="row"></row>
+        </li>
+    </ul>
+</form>

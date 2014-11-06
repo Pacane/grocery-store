@@ -6,6 +6,7 @@ import 'package:angular/application_factory.dart';
 import 'package:grocery_store/grocery_list_component.dart';
 import 'package:grocery_store/row_component.dart';
 import 'package:grocery_store/item_component.dart';
+import 'package:grocery_store/item_repository.dart';
 import 'package:angular_node_bind/angular_node_bind.dart';
 
 class MyAppModule extends Module {
@@ -13,6 +14,7 @@ class MyAppModule extends Module {
     bind(GroceryListComponent);
     bind(ListRowComponent);
     bind(ListItemComponent);
+    bind(ItemRepository);
   }
 }
 

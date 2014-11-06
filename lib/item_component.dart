@@ -8,7 +8,7 @@ import 'package:grocery_store/item.dart';
     templateUrl: 'packages/grocery_store/item_component.html',
     cssUrl: 'packages/grocery_store/item.css'
 )
-class ListItemComponent implements AttachAware {
+class ListItemComponent {
     @NgTwoWay('item')
     Item item;
 
@@ -17,11 +17,5 @@ class ListItemComponent implements AttachAware {
 
     void onChange() {
       selected = !selected;
-    }
-
-    void attach() {
-      if(item.name == "basilic") {
-        selected = true;
-      }
     }
 }
