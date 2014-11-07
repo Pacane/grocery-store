@@ -3,8 +3,7 @@ library repository;
 import 'package:grocery_store/item.dart';
 import 'package:grocery_store/row.dart';
 import 'package:angular/angular.dart';
-
-import 'package:grocery_store/list_updated_callback.dart';
+import 'dart:async';
 
 @Injectable()
 class ItemRepository {
@@ -16,13 +15,13 @@ class ItemRepository {
     return rows.firstWhere((row) => row.items.contains(item));
   }
 
-  void addItemToList(Item itemToAdd, ListUpdatedCallBack callback) {
+  Future<List<Row>> addItemToList(Item itemToAdd) {
     var row = getCorrespondingRow(itemToAdd);
     if (row != null) {
       listItems.firstWhere((r) => r.name == row.name).items.add(itemToAdd);
     }
 
-    callback.update(listItems);
+    return new Future(() => listItems);
   }
 
   bool listContains(Item item) {

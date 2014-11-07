@@ -6,12 +6,11 @@ import 'package:grocery_store/row.dart';
 import 'package:grocery_store/item.dart';
 
 import 'package:grocery_store/item_repository.dart';
-import 'package:grocery_store/list_updated_callback.dart';
 
 @Component(
     selector: 'grocery-list',
     templateUrl: 'packages/grocery_store/grocery_list.html')
-class GroceryListComponent implements ListUpdatedCallBack {
+class GroceryListComponent {
   @NgOneWay("rowsToDisplay")
   List<Row> rowsToDisplay;
   @NgTwoWay('itemToAdd')
@@ -34,11 +33,8 @@ class GroceryListComponent implements ListUpdatedCallBack {
     var itemToAdd = itemRepository.getItem(this.itemToAdd);
 
     if (itemToAdd != null && !itemRepository.listContains(itemToAdd)) {
-      itemRepository.addItemToList(itemToAdd, this);
+      itemRepository.addItemToList(itemToAdd)
+        .then((updatedItems) => rowsToDisplay = updatedItems);
     }
-  }
-
-  void update(List<Row> updatedItems) {
-    rowsToDisplay = updatedItems;
   }
 }
