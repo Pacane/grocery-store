@@ -1,8 +1,13 @@
 <form>
-    <p>Add an item</p> <input id="addItemTextBox" list="itemOptions" placeholder="Type an item name" ng-model="itemToAdd">
+    <p>Add an item</p>
+    <input id="addItemTextBox" list="itemOptions" placeholder="Type an item name" ng-model="itemToAdd">
+    <input id="rowDropDown" list="rowOptions" placeholder="Select a corresponding row" ng-model="rowNameToAddItemTo">
     <button id="addItem" ng-click="addItem()">Add</button>
     <datalist id="itemOptions">
         <option ng-repeat="item in items" value="{{item.name}}">
+    </datalist>
+    <datalist id="rowOptions">
+        <option ng-repeat="row in rows" value="{{row.name}}">
     </datalist>
 
     <ul>

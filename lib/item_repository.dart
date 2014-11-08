@@ -2,11 +2,27 @@ library repository;
 
 import 'package:grocery_store/item.dart';
 import 'package:grocery_store/row.dart';
+
 import 'package:angular/angular.dart';
+
 import 'dart:async';
 
 @Injectable()
 class ItemRepository {
+  Future addNewItemToList(String itemName, String rowName) {
+    var row = rows.firstWhere((r) => r.name == rowName);
+    var listRow = listItems.firstWhere((r) => r.name == rowName);
+
+    var newItem = new Item(itemName);
+    row.items.add(newItem);
+    listRow.items.add(newItem);
+
+    return new Future();
+  }
+
+  List<Row> rows;
+  List<Row> listItems;
+
   List<Item> getAllItems() {
     return rows.expand((r) => r.items);
   }
@@ -25,15 +41,13 @@ class ItemRepository {
   }
 
   bool listContains(Item item) {
-    return listItems.any((r) => r.items.contains(item));
+    return listItems.any((r) => r.items.any((i) => i.name == item));
   }
 
   Item getItem(String string) {
-    return rows.firstWhere((r) => r.items.any((i) => i.name == string)).items.firstWhere((i) => i.name == string);
+    var row = rows.firstWhere((r) => r.items.any((i) => i.name == string), orElse: () => null);
+    return row == null ? null : row.items.firstWhere((i) => i.name == string);
   }
-
-  List<Row> rows;
-  List<Row> listItems;
 
   ItemRepository() {
     rows = _loadRows();

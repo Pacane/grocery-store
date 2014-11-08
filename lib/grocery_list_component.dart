@@ -4,7 +4,6 @@ import 'package:angular/angular.dart';
 
 import 'package:grocery_store/row.dart';
 import 'package:grocery_store/item.dart';
-
 import 'package:grocery_store/item_repository.dart';
 
 @Component(
@@ -14,8 +13,13 @@ class GroceryListComponent {
   @NgOneWay("rowsToDisplay")
   List<Row> rowsToDisplay;
   @NgTwoWay('itemToAdd')
-  String itemToAdd = "tomate";
+  String itemToAdd = "patate";
+  @NgTwoWay('rowNameToAddItemTo')
+  String rowNameToAddItemTo = "legumes";
+
   List<Item> items;
+  List<Row> rows;
+
   ItemRepository itemRepository;
 
   GroceryListComponent(ItemRepository itemRepository) {
@@ -27,6 +31,7 @@ class GroceryListComponent {
   void onBind() {
     rowsToDisplay = itemRepository.rowsToDisplay();
     items = itemRepository.getAllItems();
+    rows = itemRepository.rows;
   }
 
   void addItem() {
@@ -35,6 +40,9 @@ class GroceryListComponent {
     if (itemToAdd != null && !itemRepository.listContains(itemToAdd)) {
       itemRepository.addItemToList(itemToAdd)
         .then((updatedItems) => rowsToDisplay = updatedItems);
+    } else if (itemToAdd == null) {
+      itemRepository.addNewItemToList(this.itemToAdd, rowNameToAddItemTo)
+      .then((_) => items = itemRepository.getAllItems());
     }
   }
 }
