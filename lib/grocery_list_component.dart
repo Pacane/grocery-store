@@ -39,10 +39,14 @@ class GroceryListComponent {
 
     if (itemToAdd != null && !itemRepository.listContains(itemToAdd)) {
       itemRepository.addItemToList(itemToAdd)
-        .then((updatedItems) => rowsToDisplay = updatedItems);
+      .then((updatedItems) => rowsToDisplay = updatedItems);
     } else if (itemToAdd == null) {
       itemRepository.addNewItemToList(this.itemToAdd, rowNameToAddItemTo)
-      .then((_) => items = itemRepository.getAllItems());
+      .then((updatedItems) {
+        items = itemRepository.getAllItems();
+        rowsToDisplay = updatedItems;
+      })
+      .catchError((e) => print(e));
     }
   }
 }

@@ -9,7 +9,10 @@ import 'dart:async';
 
 @Injectable()
 class ItemRepository {
-  Future addNewItemToList(String itemName, String rowName) {
+  List<Row> rows;
+  List<Row> listItems;
+
+  Future<List<Row>> addNewItemToList(String itemName, String rowName) {
     var row = rows.firstWhere((r) => r.name == rowName);
     var listRow = listItems.firstWhere((r) => r.name == rowName);
 
@@ -17,18 +20,15 @@ class ItemRepository {
     row.items.add(newItem);
     listRow.items.add(newItem);
 
-    return new Future();
+    return new Future(() => listItems);
   }
 
-  List<Row> rows;
-  List<Row> listItems;
-
   List<Item> getAllItems() {
-    return rows.expand((r) => r.items);
+    return rows.expand((r) => r.items).toList();
   }
 
   Row getCorrespondingRow(Item item) {
-    return rows.firstWhere((row) => row.items.contains(item));
+    return rows.firstWhere((row) => row.items.contains(item), orElse: () => null);
   }
 
   Future<List<Row>> addItemToList(Item itemToAdd) {
@@ -41,17 +41,18 @@ class ItemRepository {
   }
 
   bool listContains(Item item) {
-    return listItems.any((r) => r.items.any((i) => i.name == item));
+    return listItems.any((r) => r.items.contains(item));
   }
 
   Item getItem(String string) {
     var row = rows.firstWhere((r) => r.items.any((i) => i.name == string), orElse: () => null);
-    return row == null ? null : row.items.firstWhere((i) => i.name == string);
+    return row == null ? null : row.items.firstWhere((i) => i.name == string, orElse: () => null);
   }
 
   ItemRepository() {
     rows = _loadRows();
-    listItems = _loadRows()..forEach((r) => r.items.clear());
+    listItems = _loadRows()
+      ..forEach((r) => r.items.clear());
   }
 
   List<Row> _loadRows() {
