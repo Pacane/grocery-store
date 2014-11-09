@@ -77,8 +77,58 @@ class ItemRepository {
         new Item('mangue'),
     ];
 
+    Row viande = new Row('viande');
+    viande.items = [
+        new Item('boeuf haché'),
+        new Item('boeuf fondue'),
+        new Item('poitrine poulet'),
+        new Item('veau haché'),
+        new Item('poulet fondue'),
+        new Item('filet de porc'),
+    ];
 
-    rows = [legumes, fruits];
+    Row charcuterie = new Row('charcuterie');
+    charcuterie.items = [
+        new Item('bacon'),
+        new Item('pancetta'),
+        new Item('procutto'),
+        new Item('jambon'),
+        new Item('dinde'),
+        new Item('roast beef'),
+    ];
+
+    Row poisson = new Row('poisson');
+    poisson.items = [
+        new Item("saumon"),
+        new Item("truite"),
+        new Item("tilapia"),
+        new Item("crevettes"),
+        new Item("crabe"),
+    ];
+
+    Row produitsLaitiers = new Row('produits laitiers');
+    produitsLaitiers.items = [
+        new Item("lait"),
+        new Item("yogourt"),
+        new Item("yogourt grec"),
+        new Item("yogourt nature"),
+        new Item("yogourt vanille"),
+        new Item("crème sure"),
+        new Item("fromage"),
+        new Item("parmesan"),
+        new Item("crabe"),
+    ];
+
+    Row pain = new Row('pain');
+    pain.items = [
+        new Item("pain baguette"),
+        new Item("pain déjeuner"),
+        new Item("bagels"),
+        new Item("muffins anglais"),
+    ];
+
+
+    rows = [fruits, legumes, viande, poisson, charcuterie, pain, produitsLaitiers];
 
     return rows;
   }
