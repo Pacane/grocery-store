@@ -8,17 +8,27 @@ import 'package:grocery_store/row_component.dart';
 import 'package:grocery_store/item_component.dart';
 import 'package:grocery_store/item_repository.dart';
 import 'package:angular_node_bind/angular_node_bind.dart';
+import 'package:grocery_store/routing/recipe_book_router.dart';
+import 'package:grocery_store/add_item_component.dart';
+
+import 'package:logging/logging.dart';
 
 class MyAppModule extends Module {
   MyAppModule() {
     bind(GroceryListComponent);
     bind(ListRowComponent);
     bind(ListItemComponent);
+    bind(AddItemComponent);
     bind(ItemRepository);
+    bind(RouteInitializerFn, toValue: recipeBookRouteInitializer);
+    bind(NgRoutingUsePushState, toValue: new NgRoutingUsePushState.value(false));
   }
 }
 
 void main() {
+  Logger.root..level = Level.FINEST
+             ..onRecord.listen((LogRecord r) { print(r.message); });
+
   applicationFactory()
       .addModule(new MyAppModule())
       .addModule(new NodeBindModule())

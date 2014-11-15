@@ -21,9 +21,11 @@ class GroceryListComponent {
   List<Row> rows;
 
   ItemRepository itemRepository;
+  Router router;
 
-  GroceryListComponent(ItemRepository itemRepository) {
+  GroceryListComponent(ItemRepository itemRepository, Router router) {
     this.itemRepository = itemRepository;
+    this.router = router;
 
     onBind();
   }
@@ -48,5 +50,9 @@ class GroceryListComponent {
       })
       .catchError((e) => print(e));
     }
+  }
+
+  void test() {
+    router.go("add", {});
   }
 }
