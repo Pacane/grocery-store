@@ -8,7 +8,7 @@ import 'package:grocery_store/row_component.dart';
 import 'package:grocery_store/item_component.dart';
 import 'package:grocery_store/item_repository.dart';
 import 'package:angular_node_bind/angular_node_bind.dart';
-import 'package:grocery_store/routing/recipe_book_router.dart';
+import 'package:grocery_store/routing/grocery_store_router.dart';
 import 'package:grocery_store/add_item_component.dart';
 
 import 'package:logging/logging.dart';
@@ -20,7 +20,7 @@ class MyAppModule extends Module {
     bind(ListItemComponent);
     bind(AddItemComponent);
     bind(ItemRepository);
-    bind(RouteInitializerFn, toValue: recipeBookRouteInitializer);
+    bind(RouteInitializerFn, toValue: routeInitializer);
     bind(NgRoutingUsePushState, toValue: new NgRoutingUsePushState.value(false));
   }
 }

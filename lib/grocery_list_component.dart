@@ -52,7 +52,7 @@ class GroceryListComponent {
     }
   }
 
-  void test() {
+  void revealAddItem() {
     router.go("add", {});
   }
 }
