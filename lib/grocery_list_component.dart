@@ -6,10 +6,13 @@ import 'package:grocery_store/row.dart';
 import 'package:grocery_store/item.dart';
 import 'package:grocery_store/item_repository.dart';
 
+import 'dart:html';
+
 @Component(
     selector: 'grocery-list',
+    cssUrl: 'packages/grocery_store/grocery_list.css',
     templateUrl: 'packages/grocery_store/grocery_list.html')
-class GroceryListComponent implements ScopeAware {
+class GroceryListComponent extends ShadowRootAware implements ScopeAware {
   @NgOneWay("rowsToDisplay")
   List<Row> rowsToDisplay;
   @NgTwoWay('itemToAdd')
@@ -23,12 +26,17 @@ class GroceryListComponent implements ScopeAware {
   ItemRepository itemRepository;
   Router router;
   Scope _scope;
+  ShadowRoot shadowRoot;
 
   GroceryListComponent(this.itemRepository, this.router) {
     this.itemRepository = itemRepository;
     this.router = router;
 
     onBind();
+  }
+
+  void onItemNameChange() {
+    shadowRoot.querySelector("#rowDropDown").classes.toggle("hidden", items.any((item) => item.name == itemToAdd));
   }
 
   void onBind() {
@@ -72,4 +80,7 @@ class GroceryListComponent implements ScopeAware {
     _scope.on("row-added").listen(updateRows);
   }
 
+  void onShadowRoot(ShadowRoot shadowRoot) {
+    this.shadowRoot = shadowRoot;
+  }
 }
