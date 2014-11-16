@@ -11,7 +11,9 @@ import 'dart:async';
 class ItemRepository {
   List<Row> rows;
   List<Row> listItems;
+
   List<Row> rowsToDisplay() => listItems;
+
   Scope scope;
 
   ItemRepository(this.scope) {
@@ -135,7 +137,6 @@ class ItemRepository {
         new Item("bagels"),
         new Item("muffins anglais"),
     ];
-
 
     rows = [fruits, legumes, viande, poisson, charcuterie, pain, produitsLaitiers];
 
