@@ -9,7 +9,7 @@ import 'package:grocery_store/item_repository.dart';
 @Component(
     selector: 'grocery-list',
     templateUrl: 'packages/grocery_store/grocery_list.html')
-class GroceryListComponent {
+class GroceryListComponent implements ScopeAware {
   @NgOneWay("rowsToDisplay")
   List<Row> rowsToDisplay;
   @NgTwoWay('itemToAdd')
@@ -22,8 +22,9 @@ class GroceryListComponent {
 
   ItemRepository itemRepository;
   Router router;
+  Scope _scope;
 
-  GroceryListComponent(ItemRepository itemRepository, Router router) {
+  GroceryListComponent(this.itemRepository, this.router) {
     this.itemRepository = itemRepository;
     this.router = router;
 
@@ -34,6 +35,11 @@ class GroceryListComponent {
     rowsToDisplay = itemRepository.rowsToDisplay();
     items = itemRepository.getAllItems();
     rows = itemRepository.rows;
+  }
+
+  void updateRows(ScopeEvent e) {
+    this.rows = e.data;
+    router.go("root", {});
   }
 
   void addItem() {
@@ -53,6 +59,17 @@ class GroceryListComponent {
   }
 
   void revealAddItem() {
-    router.go("add", {});
+    router.go("addItem", {});
   }
+
+  void revealAddRow() {
+    router.go("addRow", {});
+  }
+
+  void set scope(Scope scope) {
+    _scope = scope;
+
+    _scope.on("row-added").listen(updateRows);
+  }
+
 }

@@ -11,6 +11,22 @@ import 'dart:async';
 class ItemRepository {
   List<Row> rows;
   List<Row> listItems;
+  List<Row> rowsToDisplay() => listItems;
+  Scope scope;
+
+  ItemRepository(this.scope) {
+    rows = _loadRows();
+    listItems = _loadRows()
+      ..forEach((r) => r.items.clear());
+  }
+
+  void addNewRow(String rowName) {
+    Row newRow = new Row(rowName);
+
+    rows.add(newRow);
+
+    scope.broadcast("row-added", rows);
+  }
 
   Future<List<Row>> addNewItemToList(String itemName, String rowName) {
     var row = rows.firstWhere((r) => r.name == rowName);
@@ -47,12 +63,6 @@ class ItemRepository {
   Item getItem(String string) {
     var row = rows.firstWhere((r) => r.items.any((i) => i.name == string), orElse: () => null);
     return row == null ? null : row.items.firstWhere((i) => i.name == string, orElse: () => null);
-  }
-
-  ItemRepository() {
-    rows = _loadRows();
-    listItems = _loadRows()
-      ..forEach((r) => r.items.clear());
   }
 
   List<Row> _loadRows() {
@@ -132,6 +142,4 @@ class ItemRepository {
 
     return rows;
   }
-
-  List<Row> rowsToDisplay() => listItems;
 }
