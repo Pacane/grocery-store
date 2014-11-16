@@ -21,9 +21,8 @@ class ItemRepository {
   }
 
   void addNewRow(String rowName) {
-    Row newRow = new Row(rowName);
-
-    rows.add(newRow);
+    rows.add(new Row(rowName));
+    listItems.add(new Row(rowName));
 
     scope.broadcast("row-added", rows);
   }
