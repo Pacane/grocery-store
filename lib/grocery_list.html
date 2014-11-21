@@ -1,6 +1,6 @@
 <form>
     <p>Ajouter un item</p>
-    <input id="addItemTextBox" list="itemOptions" placeholder="Entrer un nom d'item" ng-model="itemToAdd" ng-keyup="onItemNameChange()">
+    <input id="addItemTextBox" list="itemOptions" placeholder="Entrer un nom d'item" ng-model="itemToAdd" ng-keyup="onItemNameChange()" ng-change="onItemNameChange()">
     <input id="rowDropDown" list="rowOptions" placeholder="Sélectionner une rangée" ng-model="rowNameToAddItemTo" class="hidden">
     <button id="addItem" ng-click="addItem()">Add</button>
     <datalist id="itemOptions">

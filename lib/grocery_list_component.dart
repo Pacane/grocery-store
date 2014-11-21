@@ -12,7 +12,7 @@ import 'dart:html';
     selector: 'grocery-list',
     cssUrl: 'packages/grocery_store/grocery_list.css',
     templateUrl: 'packages/grocery_store/grocery_list.html')
-class GroceryListComponent extends ShadowRootAware implements ScopeAware {
+class GroceryListComponent implements ScopeAware, ShadowRootAware {
   @NgOneWay("rowsToDisplay")
   List<Row> rowsToDisplay;
   @NgTwoWay('itemToAdd')
